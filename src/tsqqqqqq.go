@@ -1,15 +1,16 @@
 package main
 
 import (
+	"database/sql"
 	"net/http"
 	"time"
 	"tsqqqqqq/router"
-	"tsqqqqqq/util"
 )
+
+var Db *sql.DB
 
 func main() {
 	r := router.InitRouter()
-	r.Use(util.Cors())
 	s := &http.Server{
 		Addr:           ":8080",
 		Handler:        r,
@@ -17,5 +18,6 @@ func main() {
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
+
 	s.ListenAndServe()
 }
