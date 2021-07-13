@@ -46,3 +46,9 @@ func Query(sql string, obj ...interface{}) (*sql.Rows, error) {
 	rows, err := db.Query(sql, obj...)
 	return rows, err
 }
+
+func ExecData(sql string, obj []interface{}) (res sql.Result, err error) {
+	fmt.Println("Exec", sql, cap(obj))
+	res, err = db.Exec(sql, obj...)
+	return
+}

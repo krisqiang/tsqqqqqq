@@ -13,7 +13,7 @@ var (
 	//自定义的token秘钥
 	secret = []byte("563068223")
 	//该路由下不校验token
-	noVerify = []interface{}{"/api/blog/login", "/"}
+	noVerify = []interface{}{"/api/blog/login", "/", "/api/blog/upload"}
 	//token有效时间（纳秒）
 	effectTime = 2 * time.Hour
 )
